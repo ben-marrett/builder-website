@@ -1,46 +1,97 @@
-# Getting Started with Create React App
+# Construction Company Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive website for a construction company built with React, TypeScript, and Tailwind CSS. The site showcases the company's services, projects, and team members with a focus on visual appeal and user experience.
+
+![Construction Company Website](https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop)
+
+## Features
+
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Modern UI**: Clean, professional design with animations and transitions
+- **Before/After Gallery**: Interactive before/after image comparison for renovation projects
+- **Service Showcase**: Detailed presentation of construction and renovation services
+- **Team Profiles**: Section highlighting the company's team members
+- **Testimonials**: Customer reviews and feedback
+- **Contact Form**: Ready for integration with Netlify Forms
+- **Performance Optimized**: Fast loading times with optimized images
+- **Fully Tested**: Component tests using Jest and React Testing Library
+
+## Project Structure
+
+```
+src/
+├── assets/         # Static assets like icons and images
+├── components/     # Reusable UI components
+├── data/           # Data files for projects, services, team members, etc.
+├── pages/          # Page components for each route
+├── __mocks__/      # Mock files for testing
+├── App.tsx         # Main application component
+├── index.tsx       # Application entry point
+└── setupTests.ts   # Test configuration
+```
+
+## Key Components
+
+- **HomePage**: Landing page with hero section, featured projects, and services
+- **ServicesPage**: Detailed information about offered services
+- **GalleryPage**: Project showcase with before/after image comparison
+- **AboutPage**: Company story and team member profiles
+- **ContactPage**: Contact form and information
+- **BeforeAfterModal**: Interactive component for comparing before/after renovation images
+
+## Technologies Used
+
+- **React 18**: Modern UI library for building component-based interfaces
+- **TypeScript**: Type-safe JavaScript for better developer experience
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **Framer Motion**: Animation library for smooth transitions and effects
+- **React Router**: For client-side routing
+- **Jest & React Testing Library**: For component testing
+- **Heroicons**: SVG icon collection
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+   ```
+   git clone <repository-url>
+   cd builder-website
+   ```
+
+2. Install dependencies
+   ```
+   npm install
+   ```
+
+3. Start the development server
+   ```
+   npm start
+   ```
+   The site will be available at [http://localhost:3000](http://localhost:3000)
 
 ## Available Scripts
 
-In the project directory, you can run:
+- **npm start**: Runs the app in development mode
+- **npm test**: Launches the test runner
+- **npm run test:components**: Runs tests for components only
+- **npm run test:pages**: Runs tests for pages only
+- **npm run test:coverage**: Runs tests with coverage report
+- **npm run build**: Builds the app for production
 
-### `npm start`
+## Deployment
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This project is configured for easy deployment to Netlify. The contact form is designed to work with Netlify Forms for handling submissions.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Image Credits
 
-### `npm test`
+All images are sourced from [Unsplash](https://unsplash.com) and are used with appropriate attribution.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## License
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project is licensed under the MIT License - see the LICENSE file for details.
