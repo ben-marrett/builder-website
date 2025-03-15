@@ -2,6 +2,8 @@
 
 A modern, responsive website for a construction company built with React, TypeScript, and Tailwind CSS. The site showcases the company's services, projects, and team members with a focus on visual appeal and user experience.
 
+**Live Site:** [Builder Website Example](https://builder-website-example.netlify.app)
+
 ![Construction Company Website](https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop)
 
 ## Features
@@ -86,7 +88,25 @@ src/
 
 ## Deployment
 
-This project is configured for easy deployment to Netlify. The contact form is designed to work with Netlify Forms for handling submissions.
+This project is deployed on Netlify at [https://builder-website-example.netlify.app](https://builder-website-example.netlify.app).
+
+### Netlify Forms Integration
+
+To do: enable the contact form with Netlify Forms
+
+1. Add the `data-netlify="true"` attribute to form element
+2. Include a hidden input field with name="form-name" and value equal to form's name
+3. Ensure all form fields have name attributes
+
+Example:
+```jsx
+<form name="contact" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="contact" />
+  {/* Your form fields here */}
+</form>
+```
+
+Netlify will automatically detect and process form submissions without requiring any backend code.
 
 ## Image Credits
 
