@@ -1,6 +1,6 @@
 # Construction Company Website
 
-A modern, responsive website for a construction company built with React, TypeScript, and Tailwind CSS. The site showcases the company's services, projects, and team members with a focus on visual appeal and user experience.
+A modern, responsive website for a construction company built with React, TypeScript, and Tailwind CSS. The site showcases the company's services, projects, and team members with a focus on visual appeal, accessibility, and user experience.
 
 **Live Site:** [Builder Website Example](https://builder-website-example.netlify.app)
 
@@ -9,14 +9,16 @@ A modern, responsive website for a construction company built with React, TypeSc
 ## Features
 
 - **Responsive Design**: Fully responsive layout that works on all devices
-- **Modern UI**: Clean, professional design with animations and transitions
+- **Modern UI**: Clean, professional design with smooth animations and transitions
+- **Type-Safe**: Fully typed with TypeScript for improved reliability
+- **Accessible**: ARIA-compliant with semantic HTML and proper keyboard navigation
 - **Before/After Gallery**: Interactive before/after image comparison for renovation projects
 - **Service Showcase**: Detailed presentation of construction and renovation services
 - **Team Profiles**: Section highlighting the company's team members
 - **Testimonials**: Customer reviews and feedback
-- **Contact Form**: Ready for integration with Netlify Forms
+- **Contact Form**: Interactive form with animations and validation
 - **Performance Optimized**: Fast loading times with optimized images
-- **Fully Tested**: Component tests using Jest and React Testing Library
+- **SEO Ready**: Proper meta tags and semantic structure
 
 ## Project Structure
 
@@ -24,19 +26,22 @@ A modern, responsive website for a construction company built with React, TypeSc
 src/
 ├── assets/         # Static assets like icons and images
 ├── components/     # Reusable UI components
-├── data/           # Data files for projects, services, team members, etc.
-├── pages/          # Page components for each route
-├── __mocks__/      # Mock files for testing
-├── App.tsx         # Main application component
-├── index.tsx       # Application entry point
-└── setupTests.ts   # Test configuration
+├── data/          # Centralized data files (images, projects, services, etc.)
+├── pages/         # Page components for each route
+├── types/         # TypeScript type definitions
+├── __mocks__/     # Mock files for testing
+├── App.tsx        # Main application component
+├── index.tsx      # Application entry point
+└── setupTests.ts  # Test configuration
 ```
 
 ## Key Components
 
+- **Button**: Reusable button component with multiple variants and routing capabilities
+- **SEO**: Centralized SEO component for managing meta tags
 - **HomePage**: Landing page with hero section, featured projects, and services
 - **ServicesPage**: Detailed information about offered services
-- **GalleryPage**: Project showcase with before/after image comparison
+- **GalleryPage**: Project showcase with before/after image comparison and category filtering
 - **AboutPage**: Company story and team member profiles
 - **ContactPage**: Contact form and information
 - **BeforeAfterModal**: Interactive component for comparing before/after renovation images
@@ -48,6 +53,7 @@ src/
 - **Tailwind CSS**: Utility-first CSS framework for rapid UI development
 - **Framer Motion**: Animation library for smooth transitions and effects
 - **React Router**: For client-side routing
+- **React Helmet Async**: For managing document head and meta tags
 - **Jest & React Testing Library**: For component testing
 - **Heroicons**: SVG icon collection
 
@@ -85,6 +91,27 @@ src/
 - **npm run test:pages**: Runs tests for pages only
 - **npm run test:coverage**: Runs tests with coverage report
 - **npm run build**: Builds the app for production
+
+## Development Status
+
+See [CHANGELOG.md](./CHANGELOG.md) for recent updates and improvements.
+
+### Current Focus Areas
+
+1. **Accessibility**
+   - Enhanced ARIA attributes
+   - Semantic HTML structure
+   - Keyboard navigation improvements
+
+2. **Performance**
+   - Image optimization
+   - Lazy loading implementation
+   - Loading states for interactive elements
+
+3. **SEO**
+   - Meta tags implementation
+   - Structured data
+   - Sitemap generation
 
 ## Deployment
 
