@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { aboutStoryImage, teamMemberImages, testimonialImages } from '../data/images';
+import { Button } from '../components/Button';
 
 const AboutPage: React.FC = () => {
   return (
@@ -193,11 +194,11 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss how we can bring your vision to life with our craftsmanship and expertise.
+            Ready to start your project? Contact us today for a free consultation.
           </p>
-          <Link to="/contact" className="btn bg-white text-primary hover:bg-gray-100">
+          <Button variant="white" to="/contact">
             Get in Touch
-          </Link>
+          </Button>
         </div>
       </section>
     </div>

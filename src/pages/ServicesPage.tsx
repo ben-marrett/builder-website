@@ -1,20 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { serviceImages } from '../data/images';
-
-// Define the type for service image keys
-type ServiceImageKey = keyof typeof serviceImages;
-
-// Define the type for a service
-interface Service {
-  title: string;
-  imageKey: ServiceImageKey;
-  description: string;
-  features: string[];
-}
+import { services } from '../data/services';
+import { processSteps, additionalServicesData } from '../data/service-content';
+import { Button } from '../components/Button';
 
 const ServicesPage: React.FC = () => {
+  // Define icons here since they need to be JSX elements
+  const additionalServices = additionalServicesData.map((service, index) => {
+    let icon;
+    switch (index) {
+      case 0: // Interior Design
+        icon = <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />;
+        break;
+      case 1: // Project Management
+        icon = <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />;
+        break;
+      case 2: // Permit Handling
+        icon = <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />;
+        break;
+      default:
+        icon = null;
+    }
+    return { ...service, icon };
+  });
+
   return (
     <div>
       {/* Page Header */}
@@ -60,9 +70,9 @@ const ServicesPage: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className="btn btn-primary self-start">
+                <Button variant="primary" to="/contact" className="self-start">
                   Request a Quote
-                </Link>
+                </Button>
               </div>
             </motion.div>
           ))}
@@ -143,9 +153,9 @@ const ServicesPage: React.FC = () => {
             <p className="text-gray-600 mb-6">
               Contact us today to schedule a free consultation. We'll discuss your project needs and provide a detailed estimate.
             </p>
-            <Link to="/contact" className="btn btn-primary">
+            <Button variant="primary" to="/contact">
               Request a Quote
-            </Link>
+            </Button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
@@ -178,126 +188,13 @@ const ServicesPage: React.FC = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Contact us today for a free consultation and quote. Let's bring your vision to life.
           </p>
-          <Link to="/contact" className="btn bg-white text-primary hover:bg-gray-100">
+          <Button variant="white" to="/contact">
             Get in Touch
-          </Link>
+          </Button>
         </div>
       </section>
     </div>
   );
 };
 
-// Sample data
-const services: Service[] = [
-  {
-    title: 'Home Renovations',
-    imageKey: 'renovations',
-    description: 'Transform your existing space with our comprehensive renovation services. We handle everything from simple updates to complete home transformations.',
-    features: [
-      'Kitchen and bathroom remodels',
-      'Basement finishing',
-      'Interior and exterior renovations',
-      'Structural modifications',
-      'Aging-in-place modifications'
-    ]
-  },
-  {
-    title: 'New Construction',
-    imageKey: 'newConstruction',
-    description: 'Build your dream home from the ground up with our expert construction services. We manage the entire process from design to final walkthrough.',
-    features: [
-      'Custom home building',
-      'Additions and extensions',
-      'Garage construction',
-      'Guest houses and ADUs',
-      'Commercial construction'
-    ]
-  },
-  {
-    title: 'Custom Carpentry',
-    imageKey: 'carpentry',
-    description: 'Add character and functionality to your home with our custom carpentry services. Each piece is handcrafted to meet your specific needs and style preferences.',
-    features: [
-      'Built-in cabinetry and shelving',
-      'Custom furniture',
-      'Trim and molding installation',
-      'Custom staircases and railings',
-      'Architectural details'
-    ]
-  },
-  {
-    title: 'Kitchen Remodeling',
-    imageKey: 'kitchenRemodeling',
-    description: 'Create the kitchen of your dreams with our specialized kitchen remodeling services. We combine functionality with beautiful design for the heart of your home.',
-    features: [
-      'Custom cabinet installation',
-      'Countertop replacement',
-      'Island additions',
-      'Lighting upgrades',
-      'Complete kitchen redesigns'
-    ]
-  },
-  {
-    title: 'Bathroom Remodeling',
-    imageKey: 'bathroomRemodeling',
-    description: 'Transform your bathroom into a luxurious retreat with our bathroom remodeling services. From simple updates to complete renovations, we do it all.',
-    features: [
-      'Shower and tub replacement',
-      'Vanity and fixture upgrades',
-      'Tile installation',
-      'Accessibility improvements',
-      'Spa-like bathroom creations'
-    ]
-  },
-  {
-    title: 'Outdoor Living Spaces',
-    imageKey: 'outdoorLiving',
-    description: 'Extend your living space to the outdoors with our custom deck, patio, and outdoor kitchen services. Create the perfect space for relaxation and entertainment.',
-    features: [
-      'Custom deck construction',
-      'Pergolas and gazebos',
-      'Outdoor kitchens',
-      'Fire pits and fireplaces',
-      'Screened porches and sunrooms'
-    ]
-  }
-];
-
-const processSteps = [
-  {
-    title: 'Consultation',
-    description: 'We meet to discuss your project goals, budget, and timeline. This allows us to understand your vision and needs.',
-  },
-  {
-    title: 'Design & Planning',
-    description: 'We create detailed plans and provide a comprehensive quote outlining all aspects of your project.',
-  },
-  {
-    title: 'Construction',
-    description: 'Our skilled team brings your project to life with quality craftsmanship and attention to detail.',
-  },
-  {
-    title: 'Final Walkthrough',
-    description: 'We review the completed project with you to ensure everything meets our high standards and your expectations.',
-  },
-];
-
-const additionalServices = [
-    {
-      title: 'Interior Design Collaboration',
-      description: 'We work with interior designers or can recommend trusted professionals to enhance your project.',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />,
-    },
-    {
-      title: 'Project Management',
-      description: 'Full-service project management ensuring your project stays on schedule and within budget.',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />,
-    },
-    {
-      title: 'Permit Handling',
-      description: 'We navigate the permit process for you, ensuring all work is up to code and legally compliant.',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />,
-    },
-  ];
-  
-  export default ServicesPage;
+export default ServicesPage;

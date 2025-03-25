@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { heroImage, featuredProjectImages, testimonialImages } from '../data/images';
 import { projects } from '../data/projects';
+import { Button } from '../components/Button';
 
 const HomePage: React.FC = () => {
   // Get the first three projects
@@ -40,18 +41,18 @@ const HomePage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Link 
-                to="/contact" 
-                className="btn bg-white text-stone-800 hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg text-center px-8 py-3 rounded-lg font-medium"
+              <Button 
+                variant="hero-primary"
+                to="/contact"
               >
                 Request a Quote
-              </Link>
-              <Link 
-                to="/gallery" 
-                className="btn border-2 border-white text-white bg-stone-900/40 hover:bg-stone-900/60 transition-all duration-300 text-center px-8 py-3 rounded-lg font-medium shadow-sm"
+              </Button>
+              <Button 
+                variant="hero-secondary"
+                to="/gallery"
               >
                 View Our Work
-              </Link>
+              </Button>
             </motion.div>
           </div>
         </div>
@@ -82,9 +83,9 @@ const HomePage: React.FC = () => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link to="/services" className="btn btn-primary">
+            <Button variant="primary" to="/services">
               View All Services
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -105,7 +106,7 @@ const HomePage: React.FC = () => {
               >
                 <div 
                   className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${project.afterImage}')` }}
+                  style={{ backgroundImage: `url('${featuredProjectImages[index]}')` }}
                 ></div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
@@ -118,9 +119,9 @@ const HomePage: React.FC = () => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <Link to="/gallery" className="btn btn-primary">
+            <Button variant="primary" to="/gallery">
               View All Projects
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -175,9 +176,9 @@ const HomePage: React.FC = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Contact us today for a free consultation and quote. We're ready to bring your vision to life.
           </p>
-          <Link to="/contact" className="btn bg-white text-primary hover:bg-gray-100 text-center">
+          <Button variant="white" to="/contact">
             Get in Touch
-          </Link>
+          </Button>
         </div>
       </section>
     </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import BeforeAfterModal from '../components/BeforeAfterModal';
 import { projects, categories, getCategoryLabel } from '../data/projects';
+import { Button } from '../components/Button';
 
 const GalleryPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -121,11 +122,11 @@ const GalleryPage: React.FC = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contact us today for a free consultation and quote. Let's create something amazing together.
+            Ready to start your project? Contact us today for a free consultation.
           </p>
-          <a href="/contact" className="btn bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-md font-medium">
+          <Button variant="white" to="/contact">
             Get in Touch
-          </a>
+          </Button>
         </div>
       </section>
 

@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
+interface NavigationItem {
+  name: string;
+  href: string;
+}
+
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -9,7 +14,7 @@ const Header: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const navigation = [
+  const navigation: NavigationItem[] = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'Gallery', href: '/gallery' },

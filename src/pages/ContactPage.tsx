@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Button } from '../components/Button';
 
 const ContactPage: React.FC = () => {
   const [formState, setFormState] = useState({
@@ -215,12 +216,11 @@ const ContactPage: React.FC = () => {
                   ></textarea>
                 </div>
                 
-                <button
-                  type="submit"
-                  className="btn btn-primary w-full"
-                >
-                  Send Message
-                </button>
+                <div className="mt-6">
+                  <Button variant="primary" type="submit" fullWidth>
+                    Send Message
+                  </Button>
+                </div>
               </form>
             </motion.div>
           </div>

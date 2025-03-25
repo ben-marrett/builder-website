@@ -1,5 +1,7 @@
+import { Category, CategoryValue, Project } from '../types';
+
 // Project categories
-export const categories = [
+export const categories: Category[] = [
   { value: 'renovations', label: 'Renovations' },
   { value: 'new-construction', label: 'New Construction' },
   { value: 'carpentry', label: 'Carpentry' },
@@ -7,13 +9,13 @@ export const categories = [
 ];
 
 // Helper function to get category label
-export const getCategoryLabel = (categoryValue: string) => {
+export const getCategoryLabel = (categoryValue: CategoryValue): string => {
   const category = categories.find(cat => cat.value === categoryValue);
   return category ? category.label : categoryValue;
 };
 
 // Project data with before/after images
-export const projects = [
+export const projects: Project[] = [
   {
     id: 1,
     title: 'Modern Kitchen Renovation',
