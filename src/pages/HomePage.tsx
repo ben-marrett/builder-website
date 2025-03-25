@@ -2,20 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { heroImage, featuredProjectImages, testimonialImages } from '../data/images';
+import { projects } from '../data/projects';
 
 const HomePage: React.FC = () => {
+  // Get the first three projects
+  const featuredProjects = projects.slice(0, 3);
+
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white">
+      <section className="relative bg-stone-900/20 text-white min-h-[80vh] flex items-center">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-40"
+          className="absolute inset-0 bg-cover bg-center opacity-85"
           style={{ backgroundImage: `url('${heroImage}')` }}
         ></div>
-        <div className="container mx-auto relative z-10 py-20 md:py-32">
+        <div className="container mx-auto relative z-10 px-4 py-12 md:py-20">
           <div className="max-w-2xl">
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -23,7 +27,7 @@ const HomePage: React.FC = () => {
               Quality Craftsmanship & Construction Excellence
             </motion.h1>
             <motion.p 
-              className="text-xl mb-8"
+              className="text-lg sm:text-xl mb-8 max-w-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -31,15 +35,21 @@ const HomePage: React.FC = () => {
               Bringing over 30 years of experience to every project, big or small.
             </motion.p>
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-4 max-w-sm sm:max-w-none"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Link to="/contact" className="btn btn-primary text-center">
+              <Link 
+                to="/contact" 
+                className="btn bg-white text-stone-800 hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg text-center px-8 py-3 rounded-lg font-medium"
+              >
                 Request a Quote
               </Link>
-              <Link to="/gallery" className="btn btn-outline border-white text-white hover:bg-white hover:text-primary text-center">
+              <Link 
+                to="/gallery" 
+                className="btn border-2 border-white text-white bg-stone-900/40 hover:bg-stone-900/60 transition-all duration-300 text-center px-8 py-3 rounded-lg font-medium shadow-sm"
+              >
                 View Our Work
               </Link>
             </motion.div>
@@ -86,7 +96,7 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project, index) => (
               <motion.div
-                key={index}
+                key={project.id}
                 className="bg-white rounded-lg overflow-hidden shadow-md"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -95,11 +105,11 @@ const HomePage: React.FC = () => {
               >
                 <div 
                   className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${featuredProjectImages[index % featuredProjectImages.length]}')` }}
+                  style={{ backgroundImage: `url('${project.afterImage}')` }}
                 ></div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <p className="text-gray-600 mb-4">{project.shortDescription}</p>
                   <Link to="/gallery" className="text-primary font-medium hover:underline">
                     View Details
                   </Link>
@@ -203,21 +213,6 @@ const services = [
       </svg>
     )
   }
-];
-
-const featuredProjects = [
-  {
-    title: 'Modern Kitchen Renovation',
-    description: 'Complete kitchen redesign and renovation with custom cabinetry and island.'
-  },
-  {
-    title: 'Custom Deck Construction',
-    description: 'Multi-level deck with built-in seating and pergola for outdoor entertaining.'
-  },
-  {
-    title: 'Home Extension',
-    description: 'Two-story extension adding a master suite and expanded living area.'
-  },
 ];
 
 const testimonials = [

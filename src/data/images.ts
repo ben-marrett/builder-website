@@ -1,11 +1,14 @@
 // Hero Images
-export const heroImage = 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop';
+export const heroImage = 'https://images.unsplash.com/photo-1512770961409-3868fd0b3e98?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?w=1920&h=1080&fit=crop';
 
 // Featured Projects Images
 export const featuredProjectImages = [
-  'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&h=400&fit=crop', // Modern kitchen
-  'https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&h=400&fit=crop', // Deck
-  'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop', // Bathroom
+  // Modern Kitchen Renovation (after)
+  'https://images.unsplash.com/photo-1600566752229-250ed79470f8?q=80&w=3478&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  // Custom Deck Construction (after)
+  'https://plus.unsplash.com/premium_photo-1671228941105-3b2bf6918fea?q=80&w=3240&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  // Master Bathroom Remodel (after)
+  'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&h=600&fit=crop'
 ];
 
 // Services Images
