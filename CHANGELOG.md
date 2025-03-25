@@ -2,6 +2,17 @@
 
 ## Recent Improvements
 
+### Accessibility & Code Quality (Latest)
+- Fixed ARIA attributes in GalleryPage category filters
+  - Replaced incorrect `aria-pressed` with `aria-checked` for radio buttons
+  - Added proper `name` attribute to group radio buttons
+- Removed redundant ARIA roles from list elements
+  - Cleaned up unnecessary `role="list"` and `role="listitem"` attributes
+  - Maintaining semantic HTML structure
+- Code cleanup
+  - Removed unused Link import from AboutPage
+  - Improved code organization and reduced bundle size
+
 ### Data Management
 - Consolidated project data into `projects.ts`
 - Added `shortDescription` for homepage previews
@@ -65,40 +76,40 @@
 
 ## Issues to address
 
-1. **Button Inconsistency**
+1. **Button Inconsistency** ✅
 - Issue: Multiple button styles are defined in different places
-- Solution: Create a reusable `Button` component with variants:
-```typescript
-// src/components/Button.tsx
-interface ButtonProps {
-  variant: 'primary' | 'secondary' | 'outline';
-  children: React.ReactNode;
-  // ... other props
-}
-```
+- Solution: Created reusable `Button` component with variants
+- Status: Implemented and being used across all pages
 
 2. **Duplicate Call-to-Action Sections**
 - Issue: The same CTA section appears in multiple pages
 - Solution: Create a reusable `CTASection` component
 
-3. **Type Safety Improvements**
+3. **Type Safety Improvements** ✅
 - Issue: Missing TypeScript interfaces for data structures
-- Solution: Add interfaces for projects, services, testimonials
+- Solution: Added interfaces for projects, services, testimonials
+- Status: Implemented across all data files
 
-4. **Accessibility Issues**
-- Missing aria-labels on interactive elements
-- Image alt texts could be more descriptive
-- Color contrast in some UI elements (especially buttons)
+4. **Accessibility Issues** (Partially Addressed ✓)
+- ✅ Fixed ARIA attributes for radio buttons
+- ✅ Removed redundant ARIA roles
+- ⏳ Still needed:
+  - Review and enhance image alt texts
+  - Add skip navigation links
+  - Implement keyboard navigation for gallery
+  - Add focus management for modals
 
 5. **Performance Considerations**
 - Large images could benefit from proper sizing and loading strategies
 - Consider lazy loading for gallery images
 - Add loading states for image-heavy sections
 
-6. **Code Organization**
-- Consider creating a `layouts` folder for shared layouts
-- Move shared types to a `types` folder
-- Create constants file for repeated values
+6. **Code Organization** (Partially Addressed ✓)
+- ✅ Created shared Button component
+- ✅ Moved types to centralized location
+- ⏳ Still needed:
+  - Create layouts folder for shared layouts
+  - Create constants file for repeated values
 
 7. **Testing Gaps**
 - Missing tests for new project data integration
@@ -109,3 +120,16 @@ interface ButtonProps {
 - Need to implement Netlify Forms attributes
 - Add proper form validation
 - Add loading and success states
+
+9. **SEO Enhancements** (New)
+- Add structured data (JSON-LD) for business information
+- Implement breadcrumbs navigation
+- Add XML sitemap
+- Add meta descriptions for each page
+
+10. **Animation and Interaction** (Partially Addressed ✓)
+- ✅ Restored contact page animations
+- ⏳ Still needed:
+  - Add loading states for interactive elements
+  - Implement reduced motion preferences
+  - Add hover/focus states for interactive elements

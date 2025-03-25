@@ -1,207 +1,230 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { aboutStoryImage, teamMemberImages, testimonialImages } from '../data/images';
 import { Button } from '../components/Button';
+import SEO from '../components/SEO';
 
 const AboutPage: React.FC = () => {
   return (
-    <div>
-      {/* Page Header */}
-      <section className="bg-primary text-white py-12">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl font-bold text-white">About Our Company</h1>
-          <p className="mt-4 max-w-2xl mx-auto">
-            A team of skilled craftsmen dedicated to quality workmanship and exceptional customer service.
-          </p>
-        </div>
-      </section>
+    <>
+      <SEO 
+        title="About Our Construction Company"
+        description="Learn about our skilled team of craftsmen, our company history, and our commitment to quality construction and carpentry services."
+        image={aboutStoryImage}
+      />
 
-      {/* Our Story */}
-      <section className="section bg-white">
-        <div className="container mx-auto">
-          <motion.div 
-            className="flex flex-col lg:flex-row gap-8 mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="lg:w-1/2">
-              <div 
-                className="h-64 lg:h-full bg-cover bg-center rounded-lg"
-                style={{ backgroundImage: `url('${aboutStoryImage}')` }}
-              ></div>
-            </div>
-            <div className="lg:w-1/2 flex flex-col justify-center">
-              <h2 className="text-3xl font-bold mb-4">Our Story</h2>
-              <p className="text-gray-600 mb-4">
-                Founded in 2010, our company began with a simple mission: to provide exceptional craftsmanship and honest service to homeowners in our community. What started as a small operation has grown into a trusted name in construction and carpentry.
-              </p>
-              <p className="text-gray-600 mb-4">
-                Our founder, James Miller, began his career as an apprentice carpenter and spent years mastering his craft before establishing our company. His dedication to quality and attention to detail remain at the core of our business philosophy today.
-              </p>
-              <p className="text-gray-600">
-                Over the years, we've assembled a team of skilled professionals who share our passion for quality workmanship and customer satisfaction. Together, we've completed hundreds of projects, from small custom carpentry works to full-scale home constructions.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <div>
+        {/* Page Header */}
+        <section className="bg-primary text-white py-12" aria-labelledby="page-title">
+          <div className="container mx-auto text-center">
+            <h1 id="page-title" className="text-4xl font-bold text-white">About Our Company</h1>
+            <p className="mt-4 max-w-2xl mx-auto">
+              A team of skilled craftsmen dedicated to quality workmanship and exceptional customer service.
+            </p>
+          </div>
+        </section>
 
-      {/* Our Values */}
-      <section className="section bg-accent bg-opacity-20">
-        <div className="container mx-auto">
-          <h2 className="section-title">Our Values</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((value, index) => (
+        {/* Our Story */}
+        <section className="section bg-white" aria-labelledby="story-title">
+          <div className="container mx-auto">
+            <motion.div 
+              className="flex flex-col lg:flex-row gap-8 mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="lg:w-1/2">
+                <div 
+                  className="h-64 lg:h-full bg-cover bg-center rounded-lg"
+                  style={{ backgroundImage: `url('${aboutStoryImage}')` }}
+                  role="img"
+                  aria-label="Our team working on a construction project"
+                ></div>
+              </div>
+              <div className="lg:w-1/2 flex flex-col justify-center">
+                <h2 id="story-title" className="text-3xl font-bold mb-4">Our Story</h2>
+                <p className="text-gray-600 mb-4">
+                  Founded in 2010, our company began with a simple mission: to provide exceptional craftsmanship and honest service to homeowners in our community. What started as a small operation has grown into a trusted name in construction and carpentry.
+                </p>
+                <p className="text-gray-600 mb-4">
+                  Our founder, James Miller, began his career as an apprentice carpenter and spent years mastering his craft before establishing our company. His dedication to quality and attention to detail remain at the core of our business philosophy today.
+                </p>
+                <p className="text-gray-600">
+                  Over the years, we've assembled a team of skilled professionals who share our passion for quality workmanship and customer satisfaction. Together, we've completed hundreds of projects, from small custom carpentry works to full-scale home constructions.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Our Values */}
+        <section className="section bg-accent bg-opacity-20" aria-labelledby="values-title">
+          <div className="container mx-auto">
+            <h2 id="values-title" className="section-title">Our Values</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
+              {values.map((value, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white p-6 rounded-lg shadow-md"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  role="listitem"
+                >
+                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      {value.icon}
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+                  <p className="text-gray-600">{value.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Team Section */}
+        <section className="section bg-white" aria-labelledby="team-title">
+          <div className="container mx-auto">
+            <h2 id="team-title" className="section-title">Meet Our Team</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" role="list">
+              {teamMembers.map((member, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white p-6 rounded-lg shadow-md text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  role="listitem"
+                >
+                  <div 
+                    className="w-32 h-32 rounded-full mx-auto mb-4 bg-cover bg-center"
+                    style={{ backgroundImage: `url('${teamMemberImages[index]}')` }}
+                    role="img"
+                    aria-label={`Photo of ${member.name}`}
+                  ></div>
+                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                  <p className="text-primary font-medium mb-2">{member.position}</p>
+                  <p className="text-gray-600">{member.bio}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Credentials Section */}
+        <section className="section bg-background" aria-labelledby="credentials-title">
+          <div className="container mx-auto">
+            <h2 id="credentials-title" className="section-title">Our Credentials</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <motion.div
-                key={index}
                 className="bg-white p-6 rounded-lg shadow-md"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    {value.icon}
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-2">{value.title}</h3>
-                <p className="text-gray-600">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="section bg-white">
-        <div className="container mx-auto">
-          <h2 className="section-title">Meet Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                className="bg-background p-6 rounded-lg shadow-md text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div 
-                  className="w-32 h-32 rounded-full mx-auto mb-4 bg-cover bg-center"
-                  style={{ backgroundImage: `url('${teamMemberImages[index % teamMemberImages.length]}')` }}
-                ></div>
-                <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                <p className="text-primary font-medium mb-3">{member.position}</p>
-                <p className="text-gray-600">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Credentials Section */}
-      <section className="section bg-background">
-        <div className="container mx-auto">
-          <h2 className="section-title">Our Credentials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              className="bg-white p-6 rounded-lg shadow-md"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-xl font-bold mb-4">Licenses & Certifications</h3>
-              <ul className="space-y-3">
-                {certifications.map((cert, index) => (
-                  <li key={index} className="flex items-start">
-                    <svg className="h-6 w-6 text-primary flex-shrink-0 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{cert}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-            
-            <motion.div
-              className="bg-white p-6 rounded-lg shadow-md"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-xl font-bold mb-4">Professional Memberships</h3>
-              <ul className="space-y-3">
-                {memberships.map((membership, index) => (
-                  <li key={index} className="flex items-start">
-                    <svg className="h-6 w-6 text-primary flex-shrink-0 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>{membership}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="section bg-white">
-        <div className="container mx-auto">
-          <h2 className="section-title">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="bg-background p-6 rounded-lg shadow-md"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
+                <h3 className="text-xl font-bold mb-4">Licenses & Certifications</h3>
+                <ul className="space-y-3">
+                  {certifications.map((cert, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="h-6 w-6 text-primary flex-shrink-0 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>{cert}</span>
+                    </li>
                   ))}
-                </div>
-                <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
-                <div className="flex items-center">
-                  <div 
-                    className="w-10 h-10 rounded-full mr-3 bg-cover bg-center"
-                    style={{ backgroundImage: `url('${testimonialImages[index % testimonialImages.length]}')` }}
-                  ></div>
-                  <div>
-                    <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.project}</p>
-                  </div>
-                </div>
+                </ul>
               </motion.div>
-            ))}
+              
+              <motion.div
+                className="bg-white p-6 rounded-lg shadow-md"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-bold mb-4">Professional Memberships</h3>
+                <ul className="space-y-3">
+                  {memberships.map((membership, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg className="h-6 w-6 text-primary flex-shrink-0 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>{membership}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Ready to start your project? Contact us today for a free consultation.
-          </p>
-          <Button variant="white" to="/contact">
-            Get in Touch
-          </Button>
-        </div>
-      </section>
-    </div>
+        {/* Testimonials */}
+        <section className="section bg-white" aria-labelledby="testimonials-title">
+          <div className="container mx-auto">
+            <h2 id="testimonials-title" className="section-title">What Our Clients Say</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6" role="list">
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-background p-6 rounded-lg shadow-md"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  role="listitem"
+                >
+                  <div className="flex mb-4" aria-label={`${testimonial.name}'s rating: 5 out of 5 stars`}>
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="h-5 w-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <blockquote>
+                    <p className="text-gray-600 italic mb-4">"{testimonial.quote}"</p>
+                    <footer className="flex items-center">
+                      <div 
+                        className="w-10 h-10 rounded-full mr-3 bg-cover bg-center"
+                        style={{ backgroundImage: `url('${testimonialImages[index % testimonialImages.length]}')` }}
+                        role="img"
+                        aria-label={`Photo of ${testimonial.name}`}
+                      ></div>
+                      <div>
+                        <cite className="font-bold not-italic">{testimonial.name}</cite>
+                        <p className="text-sm text-gray-500">{testimonial.project}</p>
+                      </div>
+                    </footer>
+                  </blockquote>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="py-16 bg-primary text-white" aria-labelledby="cta-title">
+          <div className="container mx-auto text-center">
+            <h2 id="cta-title" className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Work Together?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Contact us today to discuss your project and experience our exceptional service firsthand.
+            </p>
+            <Button 
+              variant="white" 
+              to="/contact"
+              aria-label="Contact us to discuss your project"
+            >
+              Get in Touch
+            </Button>
+          </div>
+        </section>
+      </div>
+    </>
   );
 };
 
