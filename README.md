@@ -2,9 +2,11 @@
 
 A modern, responsive website for a construction company built with React, TypeScript, and Tailwind CSS. The site showcases the company's services, projects, and team members with a focus on visual appeal, accessibility, and user experience.
 
+Developed in [Cursor](https://cursor.sh/) with Claude AI assistance.
+
 **Live Site:** [Builder Website Example](https://builder-website-example.netlify.app)
 
-![Construction Company Website](https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&h=600&fit=crop)
+![Construction Company Website](https://images.unsplash.com/photo-1656733911006-fcad49fa0d52?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dfit=crop)
 
 ## Features
 
